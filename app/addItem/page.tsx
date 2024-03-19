@@ -19,16 +19,19 @@ export default function Page() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch("http://localhost:3000/api/items", {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
+      const response = await fetch(
+        `${process.env.API_ENDPOINT_URL}/api/items`,
+        {
+          method: "POST", // *GET, POST, PUT, DELETE, etc.
 
-        headers: {
-          "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
+          headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
 
-        body: JSON.stringify(data), // body data type must match "Content-Type" header
-      });
+          body: JSON.stringify(data), // body data type must match "Content-Type" header
+        }
+      );
       if (response.ok) {
         router.push("/");
         router.refresh();

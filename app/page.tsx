@@ -4,7 +4,7 @@ import ItemsList from "./components/Items/ItemsList";
 
 const getItems = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/items", {
+    const res = await fetch(`${process.env.API_ENDPOINT_URL}/api/items`, {
       cache: "no-store",
     });
     if (!res.ok) {

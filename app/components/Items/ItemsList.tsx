@@ -25,7 +25,7 @@ const ItemsList = ({ items }) => {
   const removeHandler = async (id) => {
     const confirmed = confirm("Are you sure you want to remove ?");
     if (confirmed) {
-      await fetch(`http://localhost:3000/api/items?id=${id}`, {
+      await fetch(`h${process.env.API_ENDPOINT_URL}/api/items?id=${id}`, {
         method: "DELETE",
       });
     }

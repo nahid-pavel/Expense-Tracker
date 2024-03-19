@@ -7,9 +7,12 @@ import { useForm } from "react-hook-form";
 export default async function Page({ params }) {
   const getItemById = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/items/${params?.id}`, {
-        cache: "no-store",
-      });
+      const res = await fetch(
+        `${process.env.API_ENDPOINT_URL}/api/items/${params?.id}`,
+        {
+          cache: "no-store",
+        }
+      );
       if (!res.ok) {
         throw new Error("Failed to fetch");
       }

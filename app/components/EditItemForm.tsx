@@ -19,7 +19,7 @@ const EditItemForm = ({ item }) => {
   const onSubmit = async (data) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/items/${item?._id}`,
+        `${process.env.API_ENDPOINT_URL}/api/items/${item?._id}`,
         {
           method: "PUT", // *GET, POST, PUT, DELETE, etc.
 
